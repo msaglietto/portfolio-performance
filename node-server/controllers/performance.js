@@ -24,9 +24,21 @@ const getInitialAllocation = ({ initialBalance, allocation }) => allocation.redu
   return acc
 }, { rest: initialBalance })
 
+/**
+ * Given the history of a stock it will calculate how many shares you can buy
+ * with the initialBalance on the open of the first day of stocks
+ * Then it will calculate for each day how much your balance is with that
+ * amount of stocks on the close of the day
+ *
+ * @param {Array} histroy
+ * @param {Number} initialBalance
+ *
+ * @returns {Array} List of value of a stock per day
+ */
 const calculateStockPerformance = (history, initialBalance) => {
   let shares = 0
   return Object.entries(history).map(([key, value], idx) => {
+    // Right now is relaying on the ordering of map but this is not reliable
     if (idx === 0) {
       shares = initialBalance / parseFloat(value.open)
     }
