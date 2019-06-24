@@ -19,6 +19,22 @@ npm install
 npm run start
 ```
 
+### Endpoints
+
+`POST /api/calculate`
+
+**body**
+
+|Field                       | Type   |Description                                                            |
+|----------------------------|--------|-----------------------------------------------------------------------|
+| dateFrom                   | Date   | Day when you would have bought the stocks. Formate: 'YYYY-MM-DD'      |
+| initialBalance             | Number | Balance you would have to buy stocks at the date from period on USD   |
+| allocation                 | Array  | Portfolio distribution of the initial balance                         |
+| allocation[item]           | Object |                                                                       |
+| allocation[item].symbol    | String | Value of the stock, index or mutual fund you wish to return data for  |
+| allocation[item].percentage| Number | Propotion of the intial balance for this stock. Value from 0 - 1      |
+
+
 ## Run tests
 
 ```sh
