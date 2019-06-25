@@ -51,3 +51,8 @@
 .btn:hover {
   background-color: #2b6cb0;
 }
+
+.btn:disabled, .btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
