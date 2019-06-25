@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Form from './Form';
+import Results from './Results';
 
 class PortfolioPerformance extends React.Component {
  state = {
@@ -13,6 +14,7 @@ class PortfolioPerformance extends React.Component {
    errors: {
      overAllocated: false,
    },
+   results: [],
  };
 
  handleFormFieldChange = (field) => (evt) => {
@@ -34,11 +36,29 @@ class PortfolioPerformance extends React.Component {
  }
 
  handleSend = () => {
+  const { dateFrom, initialBalance, allocation } = this.state;
 
+  fetch('/api/calculate', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      dateFrom,
+      initialBalance,
+      allocation: allocation
+        .filter((a) => a.symbol !== '')
+        .map(a => ({...a, percentage: a.percentage / 100 }))
+    }),
+  })
+  .then(response => response.json())
+  .then((results) => {
+    this.setState({ results });
+  });
  }
 
  render() {
-   const { dateFrom, initialBalance, allocation, errors } = this.state;
+   const { dateFrom, initialBalance, allocation, errors, results } = this.state;
 
    return (
      <div>
@@ -51,6 +71,7 @@ class PortfolioPerformance extends React.Component {
         onAddAllocation={this.handleAddAllocation}
         onSend={this.handleSend}
        />
+       {results && !!results.length && <Results data={results} />}
      </div>
    );
  }

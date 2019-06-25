@@ -56,3 +56,12 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.Form-actions {
+  text-align: right;
+  margin-top: 1em;
+}
+
+.Form-actions .btn {
+  font-size: 1.2em;
+}

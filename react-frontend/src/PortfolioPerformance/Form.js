@@ -15,7 +15,7 @@ const AllocationForm = ({ symbol, percentage, onChange }) =>
     />
   </div>
 
-const Form  = ({ onChange, dateFrom, initialBalance, allocation, onAddAllocation }) => {
+const Form  = ({ onChange, dateFrom, initialBalance, allocation, onAddAllocation, onSend }) => {
   const overAllocated = allocation.reduce((t, a) => t + parseFloat(a.percentage), 0) > 100;
 
   return (
@@ -62,8 +62,9 @@ const Form  = ({ onChange, dateFrom, initialBalance, allocation, onAddAllocation
           />
         </fieldset>
       </div>
-
-      <input className="btn" type="button" value="Send" disabled={overAllocated} />
+      <div className="Form-actions">
+        <input className="btn" type="button" value="Send" disabled={overAllocated} onClick={onSend} />
+      </div>
     </div>
   )
 }
