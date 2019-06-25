@@ -1,0 +1,53 @@
+.Form-container {
+  display: flex;
+}
+
+@media (max-width: 575.98px) {
+  .Form-container {
+    flex-direction: column;
+  }
+}
+
+.form-field {
+  flex-grow: 1;
+  margin: 0.5em;
+}
+
+.form-field label {
+  display: block;
+}
+
+.form-field input {
+  width: 100%;
+}
+
+.form-field .hint {
+  display: block;
+  font-size: 0.8em;
+}
+
+.Form-container fieldset {
+  width: 100%;
+  display: flex;
+}
+
+.Form-container fieldset .form-field {
+  display: flex;
+}
+
+.Form-container fieldset .form-field input {
+  margin: 0 0.5em;
+}
+
+.btn {
+  color: white;
+  background-color: #4299e1;
+  border: 0;
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2b6cb0;
+}
