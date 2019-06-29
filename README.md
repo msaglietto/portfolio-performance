@@ -21,6 +21,10 @@ You have a node-backend made with [fastify-cli](https://github.com/fastify/fasti
 
 And a react-frontend made with [create-react-app](https://github.com/facebook/create-react-app)
 
+You may wonder why everything separated on different folders? well I intend to add other technologies and I want them all side by side so I can compare them.
+
 ## Not ready for prime time so be gentle 
 
 Error handling and validation have been omitted for brevity sake 
+
+** Check it out at https://portfolio-performanxe.herokuapp.com/ **

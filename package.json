@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-performance",
+  "version": "0.1.0",
+  "description": "Porfolio performance calculator web app",
+   "engines": {
+    "node": "10.16.0"
+   },
+  "main": "node-backend/app.js",
+  "scripts": {
+    "postinstall": "(cd node-backend && npm install) && (cd react-frontend && npm install && npm run build)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msaglietto/portfolio-performance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msaglietto/portfolio-performance/issues"
+  },
+  "homepage": "https://github.com/msaglietto/portfolio-performance#readme"
+}
